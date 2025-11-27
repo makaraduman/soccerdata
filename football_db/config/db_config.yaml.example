@@ -1,0 +1,79 @@
+# ============================================================
+# Football Statistics Database Configuration
+# ============================================================
+# Copy this file to db_config.yaml and update with your credentials
+# db_config.yaml is in .gitignore to protect sensitive information
+
+database:
+  host: localhost
+  port: 5432
+  database: football_stats
+  user: postgres
+  password: your_password_here
+  schema: football
+
+  # Connection pool settings
+  min_connections: 2
+  max_connections: 10
+
+  # Connection timeout in seconds
+  connect_timeout: 30
+
+# Scraping configuration
+scraping:
+  # Rate limiting (seconds between requests)
+  default_rate_limit: 3
+
+  # Retry configuration
+  max_retries: 3
+  retry_delay: 5
+
+  # User agent for requests
+  user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+
+  # Cache directory for soccerdata library
+  cache_dir: "~/.soccerdata"
+
+# League configuration
+leagues:
+  - name: "Premier League"
+    code: "ENG-Premier League"
+    country: "England"
+  - name: "Serie A"
+    code: "ITA-Serie A"
+    country: "Italy"
+  - name: "Ligue 1"
+    code: "FRA-Ligue 1"
+    country: "France"
+  - name: "Bundesliga"
+    code: "GER-Bundesliga"
+    country: "Germany"
+  - name: "La Liga"
+    code: "ESP-La Liga"
+    country: "Spain"
+
+# Seasons configuration
+seasons:
+  start_season: "2020-2021"
+  end_season: "2024-2025"
+
+# Data source priorities (higher number = higher priority)
+data_sources:
+  FBref:
+    priority: 1
+    enabled: true
+  Understat:
+    priority: 2
+    enabled: true
+  ESPN:
+    priority: 3
+    enabled: false
+
+# Logging configuration
+logging:
+  level: INFO  # DEBUG, INFO, WARNING, ERROR, CRITICAL
+  log_dir: logs
+  max_log_size_mb: 100
+  backup_count: 5
+  console_output: true
+  file_output: true

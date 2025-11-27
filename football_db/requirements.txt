@@ -1,0 +1,22 @@
+# ============================================================
+# Football Statistics Database - Python Dependencies
+# ============================================================
+
+# Database
+psycopg2-binary>=2.9.9
+PyYAML>=6.0.1
+
+# Data processing
+pandas>=2.0.0,!=2.1.0,<3.0.0
+
+# Logging and utilities
+python-dateutil>=2.8.2
+
+# The soccerdata package is already installed in the parent directory
+# It will be imported using sys.path manipulation
+# If you want to install it separately:
+# soccerdata>=1.8.7
+
+# Optional: For running as a scheduled job
+# schedule>=1.2.0
+# python-crontab>=3.0.0
